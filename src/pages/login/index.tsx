@@ -4,7 +4,11 @@ import { Button, Input, Logo } from "components";
 import { HomeContainer, HomeWrapper } from "./styles";
 
 const Home = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data: FormData) => console.log(data);
 
@@ -16,13 +20,11 @@ const Home = () => {
           <Input
             title="E-mail"
             type="email"
-            required
             {...register("email", { required: true })}
           />
           <Input
             title="Senha"
             type="password"
-            required
             {...register("password", { required: true })}
           >
             <Button>Entrar</Button>
